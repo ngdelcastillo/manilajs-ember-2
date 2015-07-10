@@ -1,0 +1,10 @@
+each messages as |message|
+  .chatarea-user-details
+    .chatarea-user-misc
+      p.chatarea-user
+        = message.sender
+        span.message-created-on
+          |  #{moment message.timestamp 'LLL'}
+  .chatarea-text
+    if message.body
+      = marked-down message.body

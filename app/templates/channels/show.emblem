@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel.heading
+    h3
+      = channel.name
+  .panel.body
+    = channels/messages/-list messages=messages
+  .panel.footer
+    = channels/messages/-create createMessage="createMessage"
+
+

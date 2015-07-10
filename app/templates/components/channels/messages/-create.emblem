@@ -1,0 +1,5 @@
+form#chatForm.form-horizontal submit="createMessage"
+  .input-group
+    = textarea value=body class="form-control" type="textarea" id="chatText" required="required"
+    span.input-group-btn
+      button.btn.btn-success type="submit" Send
