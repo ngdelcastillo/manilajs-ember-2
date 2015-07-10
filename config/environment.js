@@ -60,6 +60,19 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
+  if (environment === 'staging') {
+    ENV.host = 'http://manilajs-api.herokuapp.com';
+    ENV['simple-auth'] = {
+      authorizer: 'simple-auth-authorizer:devise',
+      crossOriginWhitelist: [ENV.host]
+    };
+    ENV['simple-auth-devise'] = {
+      serverTokenEndpoint: ENV.host + '/users/sign_in'
+    };
+    ENV.contentSecurityPolicy['connect-src'] =  "'self' wss://*.firebaseio.com "  + ENV.host;
+    ENV.firebase = 'https://manilajsdemo-staging.firebaseio.com/';
+  }
+
   if (environment === 'production') {
 
   }
